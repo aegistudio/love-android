@@ -577,4 +577,15 @@ public class GameActivity extends SDLActivity {
 
         return false;
     }
+
+    @Keep
+    public boolean deployAsset(String asset, String destPath) {
+        try {
+            InputStream assetStream = getAssets().open(asset);
+            return copyAssetFile(assetStream, destPath);
+        } catch (IOException e) {
+            Log.d("GameActivity", "Cannot deploy asset" + asset + ": " + e.getMessage());
+            return false;
+        }
+    }
 }
