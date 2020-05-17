@@ -588,4 +588,9 @@ public class GameActivity extends SDLActivity {
             return false;
         }
     }
+
+    @Keep
+    public String getAppBasePath() {
+		return getFilesDir().getParentFile().getAbsolutePath();
+    }
 }
